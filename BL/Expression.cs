@@ -7,7 +7,6 @@ namespace NumbersToWords.BL
 {
      class Expression
     {
-        delegate string Number();
 
         public string Interpret(List<string> stroka)
         {            

@@ -5,6 +5,11 @@ namespace NumbersToWords.BL
 {
     class Splitting
     {
+        public Splitting(string stroka, out List<string> substring)
+        {
+            SplitStrings(stroka, out substring);
+        }
+
         public void SplitStrings(string stroka, out List<string> substring)
         {
             substring = new List<string>();
