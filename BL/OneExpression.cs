@@ -1,5 +1,4 @@
-﻿
-namespace NumbersToWords.BL
+﻿namespace NumbersToWords.BL
 {
     class OneExpression 
     {

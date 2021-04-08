@@ -10,7 +10,7 @@ namespace NumbersToWords.BL
             SplitStrings(stroka, out substring);
         }
 
-        public void SplitStrings(string stroka, out List<string> substring)
+        private void SplitStrings(string stroka, out List<string> substring)
         {
             substring = new List<string>();
             if (stroka.Length % 3 == 0)

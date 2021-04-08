@@ -1,5 +1,4 @@
-﻿
-namespace NumbersToWords.BL
+﻿namespace NumbersToWords.BL
 {
 
     class Context
@@ -12,6 +11,6 @@ namespace NumbersToWords.BL
         public string Input { get { return _input; } set { _input = value; } }
 
         private string _input { get; set; }
-        public int Output { get; set; }
+        
     }     
 }

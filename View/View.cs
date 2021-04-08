@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using NumbersToWords.BL;
 
 namespace NumbersToWords.View
 {
     class VIew
     {
-        Splitting _splitting;
-        ConsoleOutput _console;
+        readonly Splitting _splitting;
+        readonly ConsoleOutput _console;
 
         public VIew(string input)
         {
