@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace NumbersToWords.BL
 {
@@ -11,32 +10,14 @@ namespace NumbersToWords.BL
         delegate string Number();
 
         public string Interpret(List<string> stroka)
-        {
-            char[] subchar;
-            string substring = null;
+        {            
             if (stroka.Count == 0)
                 return null;
 
-            subchar = stroka.First().ToCharArray();
-            Array.Resize(ref subchar, 3);
-            if(subchar[2] == '\0')
-            {
-                if (subchar[1] == '\0')
-                {
-                    subchar[2] = subchar[0];
-                    subchar[1] = '0';
-                    subchar[0] = '0';
+            string substring = null;
 
-                }
-                else
-                {
-                    subchar[2] = subchar[1];
-                    subchar[1] = subchar[0];
-                    subchar[0] = '0';
-                }
-            }
+            Validation(out char[] subchar, stroka);
             
-
             if (subchar[0] != '0')
             {
                 substring += InterpOne(subchar[0]);
@@ -54,16 +35,36 @@ namespace NumbersToWords.BL
                     substring += InterpDozen(subchar[1]);                    
                 }
             }
-            if (subchar[1] != '1' && subchar[2] != '0')
-            {
+
+            if (subchar[1] != '1' && subchar[2] != '0')            
                 substring += InterpOne(subchar[2]);
-            }
+            
             if(substring != null)
                 substring += CheckRank(stroka.Count);
             
-
             stroka.RemoveAt(0);
             return substring;
+        }
+        private void Validation(out char[] subchar, List<string> stroka)
+        {
+            subchar = stroka.First().ToCharArray();
+            Array.Resize(ref subchar, 3);
+            if (subchar[2] == '\0')
+            {
+                if (subchar[1] == '\0')
+                {
+                    subchar[2] = subchar[0];
+                    subchar[1] = '0';
+                    subchar[0] = '0';
+
+                }
+                else
+                {
+                    subchar[2] = subchar[1];
+                    subchar[1] = subchar[0];
+                    subchar[0] = '0';
+                }
+            }
         }
 
         private string CheckRank(int rank)

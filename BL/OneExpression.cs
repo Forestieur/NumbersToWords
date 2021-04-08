@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace NumbersToWords.BL
 {
-    class OneExpression : Expression
+    class OneExpression 
     {
         public static string Zero() { return " zero"; }
         public static string One() { return " one"; }

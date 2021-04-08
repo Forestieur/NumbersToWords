@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace NumbersToWords.BL
 {
-    class DozenExpression : Expression
+    class DozenExpression 
     {
+        public static string Zero() { return " zero"; }
         public static string One() { return " ten"; }
         public static string Two() { return " twenty"; }
         public static string Three() { return " thirty"; }

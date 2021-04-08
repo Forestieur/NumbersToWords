@@ -11,7 +11,7 @@ namespace NumbersToWords
     {
         static void Main(string[] args)
         {
-            string roman = "10005";
+            string roman = "010005";
             Splitting splitting = new Splitting();
             Expression expression = new Expression();
             splitting.SplitStrings(roman, out List<string> numbers1);
