@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\DozenExpression.cs" />
     <Compile Include="BL\Expression.cs" />
+    <Compile Include="BL\OneExpression.cs" />
     <Compile Include="BL\Splitting.cs" />
-    <Compile Include="Context.cs" />
+    <Compile Include="BL\TenExpression.cs" />
+    <Compile Include="BL\Context.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

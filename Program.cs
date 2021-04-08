@@ -17,14 +17,15 @@ namespace NumbersToWords
             Splitting splitting = new Splitting();
             splitting.SplitStrings(roman, out List<string> numbers1);
 
+
             //Строим 'parse tree'
-            List<Expression> tree = new List<Expression>
+           /* List<Expression> tree = new List<Expression>
             {
                 new ThousandExpression(),
                 new HundredExpression(),
                 new TenExpression(),
                 new OneExpression()
-            };
+            };*/
 
             //Интерпритатор
 
