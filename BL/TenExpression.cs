@@ -8,16 +8,15 @@ namespace NumbersToWords.BL
 {
     class TenExpression : Expression
     {
-        public override string Zero() { return "ten"; }
-        public override string One() { return "eleven"; }
-        public override string Two() { return "twelve"; }
-        public override string Three() { return "thirteen"; }
-        public override string Four() { return "fourteen"; }
-        public override string Five() { return "fifteen"; }
-        public override string Six() { return "sixteen"; }
-        public override string Seven() { return "seventeen"; }
-        public override string Eight() { return "eighteen"; }
-        public override string Nine() { return "nineteen"; }
-        // public override int Multiplier() { return 10; }
+        public static string Zero() { return " ten"; }
+        public static string One() { return " eleven"; }
+        public static string Two() { return " twelve"; }
+        public static string Three() { return " thirteen"; }
+        public static string Four() { return " fourteen"; }
+        public static string Five() { return " fifteen"; }
+        public static string Six() { return " sixteen"; }
+        public static string Seven() { return " seventeen"; }
+        public static string Eight() { return " eighteen"; }
+        public static string Nine() { return " nineteen"; }
     }
 }

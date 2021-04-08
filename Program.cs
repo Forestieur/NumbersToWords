@@ -11,36 +11,16 @@ namespace NumbersToWords
     {
         static void Main(string[] args)
         {
-            List<string> numbers = new List<string>();
-            string roman = "12345678910";
-            Context context = new Context(roman);
+            string roman = "10005";
             Splitting splitting = new Splitting();
+            Expression expression = new Expression();
             splitting.SplitStrings(roman, out List<string> numbers1);
 
-
-            //Строим 'parse tree'
-           /* List<Expression> tree = new List<Expression>
+            int blocks = numbers1.Count;
+            for (int i = 0; i < blocks; i++)
             {
-                new ThousandExpression(),
-                new HundredExpression(),
-                new TenExpression(),
-                new OneExpression()
-            };*/
-
-            //Интерпритатор
-
-            //foreach (Expression exp in tree)
-            //{
-            //    exp.Interpret(context);
-            //}
-
-            foreach (string exp in numbers1)
-            {
-                Console.WriteLine(exp);
+                Console.Write(expression.Interpret( numbers1));
             }
-            //Console.WriteLine("{0} = {1}",
-            //    roman, context.Output);
-            // Wait for user
 
             Console.ReadKey();
         }

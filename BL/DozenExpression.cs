@@ -8,16 +8,14 @@ namespace NumbersToWords.BL
 {
     class DozenExpression : Expression
     {
-        public override string Zero() { return "hundred"; }
-        public override string One() { return "ten"; }
-        public override string Two() { return "twenty"; }
-        public override string Three() { return "thirty"; }
-        public override string Four() { return "forty"; }
-        public override string Five() { return "fifty"; }
-        public override string Six() { return "sixty"; }
-        public override string Seven() { return "seventy"; }
-        public override string Eight() { return "eighty"; }
-        public override string Nine() { return "ninety"; }
-        // public override int Multiplier() { return 100; }
+        public static string One() { return " ten"; }
+        public static string Two() { return " twenty"; }
+        public static string Three() { return " thirty"; }
+        public static string Four() { return " forty"; }
+        public static string Five() { return " fifty"; }
+        public static string Six() { return " sixty"; }
+        public static string Seven() { return " seventy"; }
+        public static string Eight() { return " eighty"; }
+        public static string Nine() { return " ninety"; }
     }
 }
