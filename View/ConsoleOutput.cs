@@ -6,15 +6,27 @@ namespace NumbersToWords.View
 {
     class ConsoleOutput
     {
-        Expression _expression;
+        private Expression _expression;
 
         public ConsoleOutput(List<string> slova)
         {
             _expression = new Expression();
             int blocks = slova.Count;
+            string substring;
+           
             for (int i = 0; i < blocks; i++)
             {
-                Console.Write(_expression.Interpret(slova));
+                substring = _expression.Interpret(slova);
+
+                if(substring.Contains("error"))
+                {
+                    Console.Clear();
+                    Console.Write("Something went wrong. Check number you want to interpret");
+                    Console.ReadKey();
+                    return;
+                }
+                else
+                    Console.Write(substring);
             }
             Console.ReadKey();
         }
