@@ -6,6 +6,7 @@ namespace NumbersToWords.BL
 {
      class Expression
      {
+
         public string Interpret(List<string> stroka)
         {            
             if (stroka.Count == 0)

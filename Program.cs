@@ -6,7 +6,7 @@ namespace NumbersToWords
     {
         static void Main(string[] args)
         {
-            VIew view = new VIew("133 424");
+            _ = new VIew("133 424");
         }
     }
 }
