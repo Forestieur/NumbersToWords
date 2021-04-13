@@ -1,4 +1,5 @@
-﻿namespace NumbersToWords.BL
+﻿using System.Collections.Generic;
+namespace NumbersToWords.BL
 {
 
     class Context
@@ -8,8 +9,10 @@
             _input = input;
         }
 
-        public string Input { get { return _input; } set { _input = value; } }
+        private List<string> _words { get; set; }
+        public List<string> Words { get { return _words; } set { } }
 
+        public string Input { get { return _input; } set { _input = value; } }
         private string _input { get; set; }
         
     }     

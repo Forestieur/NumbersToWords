@@ -7,12 +7,15 @@ namespace NumbersToWords.BL
     {
         public Splitting(string stroka, out List<string> substring)
         {
+            stroka = stroka.Replace(" ", "");
+            
             SplitStrings(stroka, out substring);
         }
 
         private void SplitStrings(string stroka, out List<string> substring)
         {
             substring = new List<string>();
+
             if (stroka.Length % 3 == 0)
             {
                 while (stroka.Length % 3 == 0 && stroka.Length != 0)

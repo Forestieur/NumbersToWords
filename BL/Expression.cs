@@ -5,7 +5,7 @@ using System.Linq;
 namespace NumbersToWords.BL
 {
      class Expression
-    {
+     {
 
         public string Interpret(List<string> stroka)
         {            
@@ -14,7 +14,7 @@ namespace NumbersToWords.BL
 
             string substring = null;
 
-            Validation(out char[] subchar, stroka);
+            LengthValidation(out char[] subchar, stroka);
             
             if (subchar[0] != '0')
             {
@@ -43,10 +43,12 @@ namespace NumbersToWords.BL
             stroka.RemoveAt(0);
             return substring;
         }
-        private void Validation(out char[] subchar, List<string> stroka)
+
+        private void LengthValidation(out char[] subchar, List<string> stroka)
         {
             subchar = stroka.First().ToCharArray();
             Array.Resize(ref subchar, 3);
+
             if (subchar[2] == '\0')
             {
                 if (subchar[1] == '\0')
@@ -67,105 +69,116 @@ namespace NumbersToWords.BL
 
         private string CheckRank(int rank)
         {
-            if(rank-1 ==3)
+            switch (rank-1)
             {
-                return " billion";
+                case 3:
+                    return " billion";
+                case 2:
+                    return " million";
+                case 1:
+                    return " thousand";
+                default:
+                    return null;
             }
-            if (rank - 1 == 2)
-            {
-                return " million";
-            }
-            if (rank - 1 == 1)
-            {
-                return " thousand";
-            }
-            return null;
         }
 
         private string InterpTen(char subchar)
         {
-            string substring = null;
+            TenExpression ten = new TenExpression();
 
-                switch (subchar)
-                {
-                    case '0':
-                        return substring += TenExpression.Zero();
-                    case '1':
-                        return substring += TenExpression.One();
-                    case '2':
-                        return substring += TenExpression.Two();
-                    case '3':
-                        return substring += TenExpression.Three();
-                    case '4':
-                        return substring += TenExpression.Four();
-                    case '5':
-                        return substring += TenExpression.Five();
-                    case '6':
-                        return substring += TenExpression.Six();
-                    case '7':
-                        return substring += TenExpression.Seven();
-                    case '8':
-                        return substring += TenExpression.Eight();
-                    case '9':
-                        return substring += TenExpression.Nine();
-                }
-
-            return null;
+            switch (subchar)
+            {
+                case '0':
+                    return ten.Zero();
+                case '1':
+                    return ten.One();
+                case '2':
+                    return ten.Two();
+                case '3':
+                    return ten.Three();
+                case '4':
+                    return ten.Four();
+                case '5':
+                    return ten.Five();
+                case '6':
+                    return ten.Six();
+                case '7':
+                    return ten.Seven();
+                case '8':
+                    return ten.Eight();
+                case '9':
+                    return ten.Nine();
+                default:
+                    return null;
+            }
         }
+
         private string InterpDozen(char subchar)
-        {
-            string substring = null;
+        {            
+            DozenExpression dozen = new DozenExpression();
 
-                switch (subchar)
-                {
-               
-                    case '2':
-                        return substring += DozenExpression.Two();
-                    case '3':
-                        return substring += DozenExpression.Three();
-                    case '4':
-                        return substring += DozenExpression.Four();
-                    case '5':
-                        return substring += DozenExpression.Five();
-                    case '6':
-                        return substring += DozenExpression.Six();
-                    case '7':
-                        return substring += DozenExpression.Seven();
-                    case '8':
-                        return substring += DozenExpression.Eight();
-                    case '9':
-                        return substring += DozenExpression.Nine();
-                }
+            switch (subchar)
+            {
+                case '2':
+                    return dozen.Two();
+                case '3':
+                    return dozen.Three();
+                case '4':
+                    return dozen.Four();
+                case '5':
+                    return dozen.Five();
+                case '6':
+                    return dozen.Six();
+                case '7':
+                    return dozen.Seven();
+                case '8':
+                    return dozen.Eight();
+                case '9':
+                    return dozen.Nine();
+                default:
+                    return "error";
+            }
 
-            return null;
         }
 
         private string InterpOne(char subchar)
         {
-            string substring = null;
-                switch (subchar)
-                {
-                    case '1':
-                        return substring += OneExpression.One();
-                    case '2':
-                        return substring += OneExpression.Two();
-                    case '3':
-                        return substring += OneExpression.Three();
-                    case '4':
-                        return substring += OneExpression.Four();
-                    case '5':
-                        return substring += OneExpression.Five();
-                    case '6':
-                        return substring += OneExpression.Six();
-                    case '7':
-                        return substring += OneExpression.Seven();
-                    case '8':
-                        return substring += OneExpression.Eight();
-                    case '9':
-                        return substring += OneExpression.Nine();
-                }
+            OneExpression one = new OneExpression();
 
-            return null;
+            switch (subchar)
+            {
+                case '1':
+                    return one.One();
+                case '2':
+                    return one.Two();
+                case '3':
+                    return one.Three();
+                case '4':
+                    return one.Four();
+                case '5':
+                    return one.Five();
+                case '6':
+                    return one.Six();
+                case '7':
+                    return one.Seven();
+                case '8':
+                    return one.Eight();
+                case '9':
+                    return one.Nine();
+                default:
+                    return null;
+            }
         }
+
+        public virtual string Zero() => null;
+        public virtual string One() => null;
+        public virtual string Two() => null;
+        public virtual string Three() => null;
+        public virtual string Four() => null;
+        public virtual string Five() => null;
+        public virtual string Six() => null;
+        public virtual string Seven() => null;
+        public virtual string Eight() => null;
+        public virtual string Nine() => null;
     }
 }
