@@ -44,11 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\Expressions\DozenExpression.cs" />
-    <Compile Include="BL\Expression.cs" />
+    <Compile Include="BL\Interfaces\IExpression.cs" />
     <Compile Include="BL\Expressions\OneExpression.cs" />
+    <Compile Include="BL\Interfaces\IInterpret.cs" />
+    <Compile Include="BL\Interpret.cs" />
     <Compile Include="BL\Splitting.cs" />
     <Compile Include="BL\Expressions\TenExpression.cs" />
     <Compile Include="BL\Context.cs" />
+    <Compile Include="BL\Validation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\ConsoleOutput.cs" />

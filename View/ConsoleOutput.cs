@@ -6,19 +6,19 @@ namespace NumbersToWords.View
 {
     class ConsoleOutput
     {
-        private Expression _expression;
+        public Interpter _inter;
 
         public ConsoleOutput(List<string> slova)
         {
-            _expression = new Expression();
+            _inter = new Interpter();
             int blocks = slova.Count;
-            string substring;
-           
+            string substring2;
+
             for (int i = 0; i < blocks; i++)
             {
-                substring = _expression.Interpret(slova);
+                substring2 = _inter.Interpret(slova);
 
-                if(substring.Contains("error"))
+                if (substring2.Contains("error"))
                 {
                     Console.Clear();
                     Console.Write("Something went wrong. Check number you want to interpret");
@@ -26,7 +26,7 @@ namespace NumbersToWords.View
                     return;
                 }
                 else
-                    Console.Write(substring);
+                    Console.Write(substring2);
             }
             Console.ReadKey();
         }

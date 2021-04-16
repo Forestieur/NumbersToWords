@@ -4,9 +4,9 @@ namespace NumbersToWords
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            _ = new VIew("133 424");
+            _ = new VIew("987133 424");
         }
     }
 }

@@ -10,7 +10,6 @@ namespace NumbersToWords.View
 
         public VIew(string input)
         {
-
             _splitting = new Splitting(input, out List<string> words);
             _console = new ConsoleOutput(words);
         }
