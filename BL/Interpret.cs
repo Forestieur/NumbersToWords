@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 
+
 namespace NumbersToWords.BL
 {
-     class Expression
-     {
-
+    class Interpter : IInterpret
+    {
         public string Interpret(List<string> stroka)
-        {            
+        {
+            Validation val = new Validation();
             if (stroka.Count == 0)
                 return null;
 
             string substring = null;
 
-            LengthValidation(out char[] subchar, stroka);
-            
+            val.LengthValidation(out char[] subchar, stroka);
+
             if (subchar[0] != '0')
             {
                 substring += InterpOne(subchar[0]);
@@ -26,63 +27,25 @@ namespace NumbersToWords.BL
             {
                 if (subchar[1] == '1')
                 {
-                    substring+= InterpTen(subchar[2]);
+                    substring += InterpTen(subchar[2]);
                 }
                 else
                 {
-                    substring += InterpDozen(subchar[1]);                    
+                    substring += InterpDozen(subchar[1]);
                 }
             }
 
-            if (subchar[1] != '1' && subchar[2] != '0')            
+            if (subchar[1] != '1' && subchar[2] != '0')
                 substring += InterpOne(subchar[2]);
-            
-            if(substring != null)
-                substring += CheckRank(stroka.Count);
-            
+
+            if (substring != null)
+                substring += val.CheckRank(stroka.Count);
+
             stroka.RemoveAt(0);
             return substring;
         }
-
-        private void LengthValidation(out char[] subchar, List<string> stroka)
-        {
-            subchar = stroka.First().ToCharArray();
-            Array.Resize(ref subchar, 3);
-
-            if (subchar[2] == '\0')
-            {
-                if (subchar[1] == '\0')
-                {
-                    subchar[2] = subchar[0];
-                    subchar[1] = '0';
-                    subchar[0] = '0';
-
-                }
-                else
-                {
-                    subchar[2] = subchar[1];
-                    subchar[1] = subchar[0];
-                    subchar[0] = '0';
-                }
-            }
-        }
-
-        private string CheckRank(int rank)
-        {
-            switch (rank-1)
-            {
-                case 3:
-                    return " billion";
-                case 2:
-                    return " million";
-                case 1:
-                    return " thousand";
-                default:
-                    return null;
-            }
-        }
-
-        private string InterpTen(char subchar)
+       
+        public string InterpTen(char subchar)
         {
             TenExpression ten = new TenExpression();
 
@@ -113,8 +76,8 @@ namespace NumbersToWords.BL
             }
         }
 
-        private string InterpDozen(char subchar)
-        {            
+        public string InterpDozen(char subchar)
+        {
             DozenExpression dozen = new DozenExpression();
 
             switch (subchar)
@@ -141,7 +104,7 @@ namespace NumbersToWords.BL
 
         }
 
-        private string InterpOne(char subchar)
+        public string InterpOne(char subchar)
         {
             OneExpression one = new OneExpression();
 
@@ -169,16 +132,5 @@ namespace NumbersToWords.BL
                     return null;
             }
         }
-
-        public virtual string Zero() => null;
-        public virtual string One() => null;
-        public virtual string Two() => null;
-        public virtual string Three() => null;
-        public virtual string Four() => null;
-        public virtual string Five() => null;
-        public virtual string Six() => null;
-        public virtual string Seven() => null;
-        public virtual string Eight() => null;
-        public virtual string Nine() => null;
     }
 }

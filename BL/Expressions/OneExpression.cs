@@ -1,16 +1,16 @@
 ﻿namespace NumbersToWords.BL
 {
-    class OneExpression : Expression
+    class OneExpression : IExpression
     {
-        public override string Zero() => " zero";
-        public override string One() => " one";
-        public override string Two() => " two";
-        public override string Three() => " three";
-        public override string Four() => " four";
-        public override string Five() => " five";
-        public override string Six() => " six";
-        public override string Seven() => " seven";
-        public override string Eight() => " eight";
-        public override string Nine() => " nine";
+        public string Zero() => " zero";
+        public string One() => " one";
+        public string Two() => " two";
+        public string Three() => " three";
+        public string Four() => " four";
+        public string Five() => " five";
+        public string Six() => " six";
+        public string Seven() => " seven";
+        public string Eight() => " eight";
+        public string Nine() => " nine";
     }
 }
