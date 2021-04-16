@@ -7,6 +7,8 @@ namespace NumbersToWords.BL
 {
     class Interpter : IInterpret
     {
+        public IExpression expression;
+
         public string Interpret(List<string> stroka)
         {
             Validation val = new Validation();
@@ -19,7 +21,10 @@ namespace NumbersToWords.BL
 
             if (subchar[0] != '0')
             {
-                substring += InterpOne(subchar[0]);
+                expression = new OneExpression();
+                substring += Interp(subchar[0]);
+
+                //substring += InterpTen(subchar[0]);
                 substring += " hundred";
             }
 
@@ -27,16 +32,27 @@ namespace NumbersToWords.BL
             {
                 if (subchar[1] == '1')
                 {
-                    substring += InterpTen(subchar[2]);
+                    expression = new TenExpression();
+                    substring += Interp(subchar[2]);
+
+                    //substring += InterpTen(subchar[2]);
                 }
                 else
                 {
-                    substring += InterpDozen(subchar[1]);
+                    expression = new DozenExpression();
+                    substring += Interp(subchar[1]);
+
+                   // substring += InterpDozen(subchar[1]);
                 }
             }
 
             if (subchar[1] != '1' && subchar[2] != '0')
-                substring += InterpOne(subchar[2]);
+            {
+                expression = new OneExpression();
+                substring += Interp(subchar[2]);
+
+               // substring += InterpOne(subchar[2]);
+            }
 
             if (substring != null)
                 substring += val.CheckRank(stroka.Count);
@@ -44,60 +60,89 @@ namespace NumbersToWords.BL
             stroka.RemoveAt(0);
             return substring;
         }
-       
+
+        public string Interp(char subchar)
+        {
+            switch (subchar)
+            {
+                case '0':
+                    return expression.Zero();
+                case '1':
+                    return expression.One();
+                case '2':
+                    return expression.Two();
+                case '3':
+                    return expression.Three();
+                case '4':
+                    return expression.Four();
+                case '5':
+                    return expression.Five();
+                case '6':
+                    return expression.Six();
+                case '7':
+                    return expression.Seven();
+                case '8':
+                    return expression.Eight();
+                case '9':
+                    return expression.Nine();
+                default:
+                    return " error";
+            }
+        }
+
         public string InterpTen(char subchar)
         {
-            TenExpression ten = new TenExpression();
+            expression = new TenExpression();
 
             switch (subchar)
             {
                 case '0':
-                    return ten.Zero();
+                    return expression.Zero();
                 case '1':
-                    return ten.One();
+                    return expression.One();
                 case '2':
-                    return ten.Two();
+                    return expression.Two();
                 case '3':
-                    return ten.Three();
+                    return expression.Three();
                 case '4':
-                    return ten.Four();
+                    return expression.Four();
                 case '5':
-                    return ten.Five();
+                    return expression.Five();
                 case '6':
-                    return ten.Six();
+                    return expression.Six();
                 case '7':
-                    return ten.Seven();
+                    return expression.Seven();
                 case '8':
-                    return ten.Eight();
+                    return expression.Eight();
                 case '9':
-                    return ten.Nine();
+                    return expression.Nine();
                 default:
-                    return null;
+                    return " error";
             }
         }
 
         public string InterpDozen(char subchar)
         {
-            DozenExpression dozen = new DozenExpression();
+            expression = new DozenExpression();
 
             switch (subchar)
             {
                 case '2':
-                    return dozen.Two();
+                    return expression.Two();
                 case '3':
-                    return dozen.Three();
+                    return expression.Three();
                 case '4':
-                    return dozen.Four();
+                    return expression.Four();
                 case '5':
-                    return dozen.Five();
+                    return expression.Five();
                 case '6':
-                    return dozen.Six();
+                    return expression.Six();
                 case '7':
-                    return dozen.Seven();
+                    return expression.Seven();
                 case '8':
-                    return dozen.Eight();
+                    return expression.Eight();
                 case '9':
-                    return dozen.Nine();
+                    return expression.Nine();
                 default:
                     return "error";
             }
@@ -106,30 +151,30 @@ namespace NumbersToWords.BL
 
         public string InterpOne(char subchar)
         {
-            OneExpression one = new OneExpression();
+            expression = new OneExpression();
 
             switch (subchar)
             {
                 case '1':
-                    return one.One();
+                    return expression.One();
                 case '2':
-                    return one.Two();
+                    return expression.Two();
                 case '3':
-                    return one.Three();
+                    return expression.Three();
                 case '4':
-                    return one.Four();
+                    return expression.Four();
                 case '5':
-                    return one.Five();
+                    return expression.Five();
                 case '6':
-                    return one.Six();
+                    return expression.Six();
                 case '7':
-                    return one.Seven();
+                    return expression.Seven();
                 case '8':
-                    return one.Eight();
+                    return expression.Eight();
                 case '9':
-                    return one.Nine();
+                    return expression.Nine();
                 default:
-                    return null;
+                    return " error";
             }
         }
     }

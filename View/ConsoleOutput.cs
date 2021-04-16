@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using NumbersToWords.BL;
-
 namespace NumbersToWords.View
 {
     class ConsoleOutput
     {
-        public Interpter _inter;
+        private IInterpret _inter;
 
         public ConsoleOutput(List<string> slova)
         {
