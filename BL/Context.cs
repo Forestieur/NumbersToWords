@@ -8,6 +8,7 @@
         }       
 
         public string Input { get { return _input; } set { _input = value; } }
+
         private string _input { get; set; }
         
     }     

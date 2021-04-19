@@ -1,5 +1,5 @@
 ﻿
-namespace NumbersToWords.BL
+namespace NumbersToWords.BL.Interfaces
 {
      interface IExpression
      {   

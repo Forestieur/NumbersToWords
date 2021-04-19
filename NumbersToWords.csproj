@@ -47,6 +47,7 @@
     <Compile Include="BL\Interfaces\IExpression.cs" />
     <Compile Include="BL\Expressions\OneExpression.cs" />
     <Compile Include="BL\Interfaces\IInterpret.cs" />
+    <Compile Include="BL\Interfaces\IValidation.cs" />
     <Compile Include="BL\Interpret.cs" />
     <Compile Include="BL\Splitting.cs" />
     <Compile Include="BL\Expressions\TenExpression.cs" />
