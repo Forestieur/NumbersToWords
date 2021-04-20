@@ -15,6 +15,10 @@ namespace NumbersToWords.BL
         private void SplitStrings(string stroka, out List<string> substring)
         {
             substring = new List<string>();
+            if (stroka == "")
+            {
+                return;
+            }
 
             if (stroka.Length % 3 == 0)
             {

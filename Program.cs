@@ -3,10 +3,11 @@
 namespace NumbersToWords
 {
     class Program
-    {
+    { 
         static void Main()
         {
-            _ = new VIew("87 133 424");
+            VIew view = new VIew();
+            view.ConsoleView("145 555 789");
         }
     }
 }

@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NumbersToWords.BL.Interfaces;
 
 namespace NumbersToWords.BL
 {
-    class Validation
+    class Validation : IValidation
     {
         public void LengthValidation(out char[] subchar, List<string> stroka)
         {

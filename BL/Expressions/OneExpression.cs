@@ -1,4 +1,6 @@
-﻿namespace NumbersToWords.BL
+﻿using NumbersToWords.BL.Interfaces;
+
+namespace NumbersToWords.BL
 {
     class OneExpression : IExpression
     {
