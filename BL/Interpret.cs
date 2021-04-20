@@ -8,18 +8,15 @@ namespace NumbersToWords.BL
     class Interpter : IInterpret
     {
         private IExpression expression;
-        private IValidation val;
 
         public string Interpret(List<string> stroka)
         {
-            val = new Validation();
+            Validation val = new Validation();
             if (stroka.Count == 0)
                 return null;
 
             string substring = null;
-
           
-
             val.LengthValidation(out char[] subchar, stroka);
 
 
@@ -53,10 +50,7 @@ namespace NumbersToWords.BL
                 substring += InterpNumber(subchar[2]);
 
             }
-            /*if(new string(subchar) == "000" && stroka.Count == 1)
-            {
-                substring += "zero";
-            }*/
+            
 
             if (substring != null)
                 substring += val.CheckRank(stroka.Count);

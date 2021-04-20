@@ -5,13 +5,17 @@ namespace NumbersToWords.View
 {
     class VIew
     {
-        private Splitting _splitting;
-        private ConsoleOutput _console;
+        private IController controller;
 
-        public VIew(string input)
+        public VIew()
         {
-            _splitting = new Splitting(input, out List<string> words);
-            _console = new ConsoleOutput(words);
+            controller = new Controller();
+        }
+
+        public void ConsoleView(string input)
+        {
+            _ = new Splitting(input, out List<string> words);
+            controller.ControllerOutput(words);
         }
     }
 }

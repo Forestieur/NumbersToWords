@@ -6,6 +6,5 @@ namespace NumbersToWords.BL.Interfaces
     { 
         string Interpret(List<string> stroka);
         string InterpNumber(char subchar);
-
     }
 }
